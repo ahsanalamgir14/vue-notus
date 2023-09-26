@@ -19,6 +19,7 @@ import Auth from "@/layouts/Auth.vue";
 
 import Dashboard from "@/views/admin/Dashboard.vue";
 import Settings from "@/views/admin/Settings.vue";
+import Assessment from "@/views/admin/Assessment.vue";
 import Tables from "@/views/admin/Tables.vue";
 import Maps from "@/views/admin/Maps.vue";
 
@@ -31,13 +32,13 @@ import Register from "@/views/auth/Register.vue";
 
 import Landing from "@/views/Landing.vue";
 import Profile from "@/views/Profile.vue";
-import Index from "@/views/Index.vue";
+// import Index from "@/views/Index.vue";
 
 // routes
 
 const routes = [
   {
-    path: "/admin",
+    path: "/",
     redirect: "/admin/dashboard",
     component: Admin,
     children: [
@@ -48,6 +49,10 @@ const routes = [
       {
         path: "/admin/settings",
         component: Settings,
+      },
+      {
+        path: "/admin/assessment",
+        component: Assessment,
       },
       {
         path: "/admin/tables",
@@ -82,11 +87,11 @@ const routes = [
     path: "/profile",
     component: Profile,
   },
-  {
-    path: "/",
-    component: Index,
-  },
-  { path: "/:pathMatch(.*)*", redirect: "/" },
+  // {
+  //   path: "/",
+  //   component: Index,
+  // },
+  { path: "/:pathMatch(.*)*", redirect: "/admin/dashboard" },
 ];
 
 const router = createRouter({
